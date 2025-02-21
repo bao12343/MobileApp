@@ -10,7 +10,7 @@ export interface ProductListParams {
     size?: string
 }
 
-export interface FetchProductsParam {
+export interface FetchProductsParams {
     data: {
         Product: ProductListParams[]
         results: ProductListParams[]

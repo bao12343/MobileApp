@@ -35,13 +35,14 @@ router.post('/createCategory', (req: Request, res: Response, next: NextFunction)
     });
 });
 
+router.get('/getAllCategories', async (req: Request, res: Response) => {
+    await getAllCategories(req, res);
+});
+
 router.get('/:id', async (req: Request, res: Response) => {
     await getCategory(req, res);
 });
 
-router.get('/', async (req: Request, res: Response) => {
-    await getAllCategories(req, res);
-});
 
 router.put('/updateCategory/:id', (req: Request, res: Response, next: NextFunction) => {
     upload(req, res, async (err: any) => {
