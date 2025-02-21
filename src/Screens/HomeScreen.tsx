@@ -68,7 +68,7 @@ const HomeScreen = ({navigation, route}: TabsStackScreenProps<"Home">)=>{
                     textAlign: "center", 
                     color: "#6D4C41" 
                 }}>
-                    Categories
+                    Menu
                 </Text>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{paddingHorizontal:15}}
@@ -102,11 +102,11 @@ const HomeScreen = ({navigation, route}: TabsStackScreenProps<"Home">)=>{
             }}
       >
         <Text style={{ fontSize: 14, fontWeight: "bold", padding: 10 }}>
-          Products from Selected Category
+          Món ăn
         </Text>
         <Pressable>
           <Text style={{ fontSize: 11, fontWeight: "bold", padding: 10 }}>
-            See All
+            Xem tất cả
           </Text>
         </Pressable>
       </View>

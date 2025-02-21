@@ -1,4 +1,5 @@
-import express, { Request, Response } from "express";
+//import express, { Request, Response } from "express";
+import express from "express";
 import multer from "multer";
 import path from "path";
 import {
@@ -7,7 +8,6 @@ import {
   getProductByCatID,
   getProductByID,
 } from "../Controllers";
-
 const router = express.Router();
 const imagesStorage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -27,5 +27,5 @@ router.post("/createProduct", images, createProduct);
 router.get("/getProductByCatID/:CatID", getProductByCatID);
 router.get("/getProductByID/:id", getProductByID);
 router.get("/getAllProducts", getAllProducts);
-
+// router.get('/filterProducts', getProductByName)
 export { router as ProductRoute };

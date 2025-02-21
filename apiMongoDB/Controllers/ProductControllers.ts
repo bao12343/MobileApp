@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { PRODUCTS } from "../Models/ProductModel";
 import { ProductParams } from "../dto/Product";
+import mongoose from "mongoose";
 
 const path = "http://localhost:8888/assets/";
 
@@ -48,6 +49,12 @@ export const getProductByCatID = async (req: Request, res: Response) => {
     res.status(500).json(`ProductByID fetch failed ${error} :-(`);
   }
 };
+
+
+
+
+
+  
 export const getProductByID = async (req: Request, res: Response) => {
   try {
     const result = await PRODUCTS.findById(req.params.id);
@@ -64,3 +71,24 @@ export const getAllProducts = async (req: Request, res: Response) => {
     res.status(500).json(`Products not found ${error} :-( `);
   }
 };
+
+// export const getProductByName = async (req: Request, res: Response): Promise<Response> => {
+//     try {
+//       const { name } = req.query; // Lấy tham số `name` từ query params
+  
+//       if (!name || typeof name !== "string") {
+//         return res.status(400).json({ message: "Tên sản phẩm không hợp lệ." });
+//       }
+  
+//       const result = await PRODUCTS.find({ name: { $regex: name, $options: "i" } });
+  
+//       if (!result || result.length === 0) {
+//         return res.status(404).json({ message: "Không tìm thấy sản phẩm nào." });
+//       }
+  
+//       return res.status(200).json(result);
+//     } catch (error) {
+//       console.error("Error filtering products:", error);
+//       return res.status(500).json({ message: `Lỗi khi tìm kiếm sản phẩm: ${error}` });
+//     }
+//   };

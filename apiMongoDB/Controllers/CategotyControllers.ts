@@ -43,6 +43,7 @@ export const getCategory = async (req: Request, res: Response) => {
     }
 };
 
+
 export const getAllCategories = async (_req: Request, res: Response) => {
     try {
         const categories = await CATEGORIES.find({});
