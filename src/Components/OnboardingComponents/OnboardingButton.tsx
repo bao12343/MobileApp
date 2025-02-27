@@ -4,7 +4,7 @@ import { onboardingButtonParams } from "../../TypesCheck/OnboardingTypesCheck"
 import Animated , {interpolateColor, useAnimatedStyle, withSpring, withTiming} from 'react-native-reanimated'
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
-import {RootStackParams} from "../../Navigation/RootNavigator"
+import {RootStackParamObj} from "../../Navigation/RootNavigator"
 
 
 
@@ -60,7 +60,7 @@ const OnboardingButton = ({flatListIndex, flatListRef, itemLength, x}: onboardin
             backgroundColor: backgroundColor
         }
     })
-    const navigation = useNavigation <NativeStackNavigationProp<RootStackParams>>();
+    const navigation = useNavigation <NativeStackNavigationProp<RootStackParamObj>>();
     return (
         <TouchableWithoutFeedback
             onPress ={()=>{

@@ -7,6 +7,7 @@ import {
   getAllProducts,
   getProductByCatID,
   getProductByID,
+  getTrendingProducts,
 } from "../Controllers";
 const router = express.Router();
 const imagesStorage = multer.diskStorage({
@@ -27,5 +28,6 @@ router.post("/createProduct", images, createProduct);
 router.get("/getProductByCatID/:CatID", getProductByCatID);
 router.get("/getProductByID/:id", getProductByID);
 router.get("/getAllProducts", getAllProducts);
+router.get('/getTrendingProduct', getTrendingProducts);
 // router.get('/filterProducts', getProductByName)
 export { router as ProductRoute };

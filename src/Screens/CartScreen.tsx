@@ -16,3 +16,5 @@ const CartScreen = ({navigation, route}: TabsStackScreenProps<"Cart">)=>{
 }
 
 export default CartScreen
+
+

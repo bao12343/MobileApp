@@ -4,18 +4,19 @@ import { AntDesign, Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import {GoBack} from "./GobackButton"
 import CartScreen from './../../Screens/CartScreen';
 
+
 interface IHeaderParams {
-    goToPrevios?: () => void;
+    goToPrevious?: () => void;
     search?: () => void;
     cartLength?: number;
     gotoCartScreen?: () => void;
 }
 
-export const HeadersComponent = ({ goToPrevios, search, cartLength, gotoCartScreen}: IHeaderParams) => {
+export const HeadersComponent = ({ goToPrevious, search, cartLength, gotoCartScreen}: IHeaderParams) => {
     const [searchInput, setSearchInput ] = useState("")
     return(
         <View style={{ backgroundColor: "#000", padding:10, flexDirection:"row", alignItems: "center" }}>
-            <GoBack onPress= {goToPrevios} />
+            <GoBack onPress= {goToPrevious} />
             <Pressable style={{
                 flexDirection: "row", alignItems: "center", marginHorizontal: 7,
                 gap: 10, backgroundColor: "white", borderRadius: 10, height: 38, flex: 1
@@ -25,14 +26,20 @@ export const HeadersComponent = ({ goToPrevios, search, cartLength, gotoCartScre
             </Pressable>
             <TextInput value={searchInput} onChangeText={setSearchInput} placeholder= "search Items..."/>
             </Pressable>
-            <Pressable onPress={gotoCartScreen}>
+            {/* <Pressable onPress={gotoCartScreen}>
                 <View style= {styles.cartNum}>
                     <Text style= {{ color: "pink"}}>
                         {cartLength}
                     </Text>
                 </View>
                 <MaterialIcons name="shopping-cart" size={24} color={"white"} style={{ padding:5, marginTop: 3}}/>
-            </Pressable>
+            </Pressable> */}
+            <Pressable onPress={gotoCartScreen}>
+                        <View style={styles.cartNum}>
+                            <Text style={styles.cartNumText}>{cartLength}</Text>
+                        </View>
+                        <MaterialIcons name="shopping-cart" size={24} color="white" style={styles.cartIcon}/>
+             </Pressable>
 
 
         </View>
@@ -49,5 +56,12 @@ const styles = StyleSheet.create ({
         height: 20,
         justifyContent: "center",
         alignItems: "center",
-    }
+    },
+    cartNumText: {
+        color: "#fff",
+    },
+    cartIcon: {
+        padding: 5,
+        marginTop: 3,
+    },
 })
