@@ -25,3 +25,4 @@ export const DisplayMessage = ({message, visible}: displayMessage) => {
         </View>
     )
 }
+export default  DisplayMessage

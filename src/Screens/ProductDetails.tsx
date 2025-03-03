@@ -79,7 +79,7 @@ const ProductDetails = ({ navigation, route }: RootStackScreenProps<"productDeta
                         }}
                         >
                             <Text style={{ color: "yellow", textAlign: "center", fontWeight: "600", fontSize: 12}}>
-                            {oldPrice ? ((1- price / oldPrice) * 100).toFixed(1) : 0}% off</Text>
+                            {oldPrice ? ((1- price / oldPrice) * 100).toFixed(1) : 50}% off</Text>
                         </View>
                         <View style={{
                             width: 40, height: 40, borderRadius: 20, backgroundColor: "#E0E0E0",

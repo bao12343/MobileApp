@@ -4,6 +4,7 @@ import OnboardingScreen from "../Screens/OnboardingScreen"
 import TabsNavigator, {TabsStackParams} from "./TabsNavigation"
 import { NavigatorScreenParams } from "@react-navigation/native"
 import ProductDetails from "../Screens/ProductDetails"
+import UserAuth from "../Screens/LoginRegisterScreen."
 export type  RootStackParamObj  = { // định nghĩa danh sách màn hình có trong navigator
     OnboardingScreen: undefined
     TabsStack: NavigatorScreenParams<TabsStackParams>
@@ -32,7 +33,16 @@ export type  RootStackParamObj  = { // định nghĩa danh sách màn hình có 
         size?: string;
         description?: string;
         quantity: number
-    }
+    };
+    UserLogin: {
+        email?: string;
+        password?: string;
+        confirmPassword?: string;
+        firstName?: string;
+        lastName?: string;
+        mobileNo?: string;
+        screenTitle?: string;
+    };
 }
 
 // tạo một navigator với danh sách màn hình được định nghĩa trong RootStackParams
@@ -56,6 +66,7 @@ const RootNavigator = () => {
                 options={{headerShown: false}}
             />
             <RootStack.Screen name="productDetails" component={ProductDetails} options={{ headerShown: false}}/>
+            <RootStack.Screen name="UserLogin" component={UserAuth} options={{ headerShown: false}}/>
             
         </RootStack.Navigator>
     )

@@ -10,6 +10,7 @@ interface IHeaderParams {
     search?: () => void;
     cartLength?: number;
     gotoCartScreen?: () => void;
+    pageTitle?: string;
 }
 
 export const HeadersComponent = ({ goToPrevious, search, cartLength, gotoCartScreen}: IHeaderParams) => {

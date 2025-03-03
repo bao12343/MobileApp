@@ -21,14 +21,14 @@ interface IProdByCatProps {
   
 export const fetchCategories = async ({ setGetCategory }: ICatProps) => {
     try{
-        const Response = await axios.get("http://192.168.1.8:8888/category/getAllCategories");
+        const Response = await axios.get("http://10.106.23.101:8888/category/getAllCategories");
         // console.log("API Response:", Response.data);
 
         if( Array.isArray( Response.data)) {
             const fixedData = Response.data.map(item => ({
                 ...item,
                 images: item.images.map((img: string) =>
-                    img.replace("http://localhost", "http://192.168.1.8")
+                    img.replace("http://localhost", "http://10.106.23.101")
             )
             }));
 
@@ -50,7 +50,7 @@ export const fetchProductsByCatID = async ({
   }: IProdByCatProps) => {
     try {
       const response: FetchProductsParams = await axios.get(
-        `http://192.168.1.8:8888/product/getProductByCatID/${catID}`
+        `http://10.106.23.101:8888/product/getProductByCatID/${catID}`
       );
       // console.log("API Response:", response.data);
   
@@ -58,7 +58,7 @@ export const fetchProductsByCatID = async ({
         const fixedData = response.data.map((item) => ({
           ...item,
           images: item.images.map((img: string) =>
-            img.replace("http://localhost", "http://192.168.1.8")
+            img.replace("http://localhost", "http://10.106.23.101")
           ),
         }));
   
@@ -66,7 +66,7 @@ export const fetchProductsByCatID = async ({
       } else {
         console.warn("fetchProductsByCatID: Dữ liệu API không phải là mảng", response.data);
         setGetProductsByCatID([]);
-      }
+      }68
     } catch (error) {
       console.log("axios get error", error);
       setGetProductsByCatID([]);
@@ -75,14 +75,14 @@ export const fetchProductsByCatID = async ({
 
   export const fetchTrendingProducts = async ({setTrendingProduct }:ITrendingProductProps) => {
     try {
-      const response: FetchProductsParams = await axios.get(`http://192.168.1.8:8888/product/getTrendingProduct`);
+      const response: FetchProductsParams = await axios.get(`http://10.106.23.101:8888/product/getTrendingProduct`);
       console.log("API Response:", response.data);
   
       if (Array.isArray(response.data)) {
         const fixedData = response.data.map((item) => ({
           ...item,
           images: item.images.map((img: string) =>
-            img.replace("http://localhost", "http://192.168.1.8")
+            img.replace("http://localhost", "http://10.106.23.101")
           ),
         }));
   

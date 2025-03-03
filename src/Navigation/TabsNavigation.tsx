@@ -11,10 +11,14 @@ import {Entypo, AntDesign, Ionicons} from "@expo/vector-icons"
 
 export type TabsStackParams ={
     Home: undefined
+
+//     Home: {
+//         adId?: string 
+//    };
     // Cart: undefined
     Cart: {
         _id?: string;
-        images?: [string];
+        images?: string[];
         name?: string;
         price?: number;
         oldPrice?: number;
@@ -31,6 +35,9 @@ const TabsStack = createBottomTabNavigator<TabsStackParams>()
 
 export type TabsStackScreenProps <T extends keyof TabsStackParams> = 
     CompositeScreenProps<BottomTabScreenProps<TabsStackParams,T>,RootStackScreenProps<"TabsStack">>;
+
+
+
 
 const TabsNavigator = () => {
     return (
@@ -52,6 +59,7 @@ const TabsNavigator = () => {
             )
         }}
             />
+            
         <TabsStack.Screen 
             name= "Payment" component= {PaymentScreen} options ={{headerShown: false, tabBarIcon:({focused})=> focused?(
                 <Ionicons name="copy" size = {24} color="#00970a"/>
